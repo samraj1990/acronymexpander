@@ -1,6 +1,7 @@
 package com.myprojects.repository.di
 
 import com.myprojects.data.AcronymRepo
+import com.myprojects.repository.BuildConfig
 import com.myprojects.repository.repo.AcronymApi
 import com.myprojects.repository.repo.AcronymRepoImpl
 import dagger.Binds
@@ -23,7 +24,7 @@ abstract class RepoModule {
         fun provideGifRepoApi(): AcronymApi = getRetrofit().create(AcronymApi::class.java)
 
         private fun getRetrofit(): Retrofit {
-            return Retrofit.Builder().baseUrl("http://www.nactem.ac.uk/software/")
+            return Retrofit.Builder().baseUrl(BuildConfig.ACRONYM_END_POINT)
                 .addConverterFactory(GsonConverterFactory.create()).build()
         }
     }

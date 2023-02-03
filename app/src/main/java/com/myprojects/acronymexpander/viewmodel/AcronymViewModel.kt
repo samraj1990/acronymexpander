@@ -41,7 +41,6 @@ class AcronymViewModel @Inject constructor(private val acronymRepo: AcronymRepo)
         }
     }
 
-
     fun clearText(){
         acronymText.text = EMPTY_STR
         mFullForms.value = emptyList()
